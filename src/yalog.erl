@@ -85,7 +85,7 @@ log(Type, Module, Format, Args) ->
 log(Type, Module, Line, Format, Args) ->
     io:format(format_entry(Type, just_now(), Module, Line, Format, Args)).
 
-just_now() -> calendar:now_to_universal_time(now()).
+just_now() -> calendar:now_to_universal_time(os:timestamp()).
 
 format_entry(Type, Time, Module, Line, Format, Args)
   when is_list(Args) ->
