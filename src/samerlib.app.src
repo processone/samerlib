@@ -2,7 +2,7 @@
 
 {application, samerlib,
  [{description, "A bucket for low level, very common functionality"},
-  {vsn, "0.8.0b"},
+  {vsn, "0.8.0c"},
   {modules, []},
   {registered, []},
   {applications, [kernel, stdlib]},
