@@ -114,8 +114,13 @@ create_rand_dir(N) ->
 random_dir_name() ->
     "sel_test_temp-" ++ [random_letter() || _ <- lists:seq(1, 10)].
 
+-ifdef(RAND_UNIFORM).
 random_letter() ->
-    random:uniform($z - $a) + $a - 1.
+    rand:uniform($z - $a) + $a - 1.
+-else.
+random_letter() ->
+    crypto:rand_uniform(0, $z - $a) + $a - 1.
+-endif.
 
 base_test_dir() -> "/tmp".
 

@@ -1,0 +1,8 @@
+code:ensure_loaded(rand),
+V = case erlang:function_exported(rand, uniform, 1) of
+	true ->
+	    [{d, 'RAND_UNIFORM'}];
+	false ->
+	    []
+    end,
+lists:keyreplace(erl_opts, 1, CONFIG, {erl_opts, [debug_info | V]}).
